@@ -1233,30 +1233,6 @@ lang="es">
           <!-- Descuento oculto (compatibilidad) -->
           <input id="descuento" type="hidden" value="0">
 
-          <!-- Esquema de Pagos -->
-          <div class="input-group">
-            <div class="calc-section-label">💳 Esquema de Pagos</div>
-            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:4px;">
-              <div class="tier-opt" id="pago_anual" onclick="selectPayment('anual')" style="padding:14px 10px;position:relative;overflow:hidden;">
-                <div style="position:absolute;top:0;left:0;right:0;height:2px;background:var(--gold);border-radius:999px 999px 0 0;opacity:0;" id="pago_anual_line"></div>
-                <div class="tier-opt-label" style="font-size:9px;margin-bottom:3px;">Pago Anual</div>
-                <div class="tier-opt-price" style="font-size:18px;font-weight:900;color:var(--gold);">15%</div>
-                <div style="font-size:8px;color:var(--text-muted);margin-top:2px;">descuento</div>
-              </div>
-              <div class="tier-opt" id="pago_q" onclick="selectPayment('q')" style="padding:14px 10px;">
-                <div class="tier-opt-label" style="font-size:9px;margin-bottom:3px;">Trimestral</div>
-                <div class="tier-opt-price" style="font-size:18px;font-weight:900;color:var(--pacific);">10%</div>
-                <div style="font-size:8px;color:var(--text-muted);margin-top:2px;">descuento</div>
-              </div>
-              <div class="tier-opt" id="pago_3p" onclick="selectPayment('3p')" style="padding:14px 10px;">
-                <div class="tier-opt-label" style="font-size:9px;margin-bottom:3px;">3 Parcialidades</div>
-                <div class="tier-opt-price" style="font-size:18px;font-weight:900;color:var(--green);">5%</div>
-                <div style="font-size:8px;color:var(--text-muted);margin-top:2px;">descuento</div>
-              </div>
-            </div>
-            <div id="pago_calc_hint" class="input-hint">Selecciona un esquema para aplicar el descuento al total</div>
-          </div>
-
           <!-- FotoFacturas toggle -->
           <div class="input-group">
             <label class="input-label">Add-on FotoFacturas</label>
@@ -1288,6 +1264,30 @@ lang="es">
               <span id="ff_custom_price" style="font-size:11px;font-weight:700;color:var(--gold);white-space:nowrap;margin-left:auto;"></span>
             </div>
             <div class="input-hint">MXN / mes · $10 por factura adicional · o elige un paquete arriba</div>
+          </div>
+
+          <!-- Esquema de Pagos -->
+          <div class="input-group">
+            <div class="calc-section-label">💳 Esquema de Pagos</div>
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:4px;">
+              <div class="tier-opt" id="pago_anual" onclick="selectPayment('anual')" style="padding:14px 10px;position:relative;overflow:hidden;">
+                <div style="position:absolute;top:0;left:0;right:0;height:2px;background:var(--gold);border-radius:999px 999px 0 0;opacity:0;" id="pago_anual_line"></div>
+                <div class="tier-opt-label" style="font-size:9px;margin-bottom:3px;">Pago Anual</div>
+                <div class="tier-opt-price" style="font-size:18px;font-weight:900;color:var(--gold);">15%</div>
+                <div style="font-size:8px;color:var(--text-muted);margin-top:2px;">descuento</div>
+              </div>
+              <div class="tier-opt" id="pago_q" onclick="selectPayment('q')" style="padding:14px 10px;">
+                <div class="tier-opt-label" style="font-size:9px;margin-bottom:3px;">Trimestral</div>
+                <div class="tier-opt-price" style="font-size:18px;font-weight:900;color:var(--pacific);">10%</div>
+                <div style="font-size:8px;color:var(--text-muted);margin-top:2px;">descuento</div>
+              </div>
+              <div class="tier-opt" id="pago_3p" onclick="selectPayment('3p')" style="padding:14px 10px;">
+                <div class="tier-opt-label" style="font-size:9px;margin-bottom:3px;">3 Parcialidades</div>
+                <div class="tier-opt-price" style="font-size:18px;font-weight:900;color:var(--green);">5%</div>
+                <div style="font-size:8px;color:var(--text-muted);margin-top:2px;">descuento</div>
+              </div>
+            </div>
+            <div id="pago_calc_hint" class="input-hint">Selecciona un esquema para aplicar el descuento al total</div>
           </div>
 
           <!-- Gasto tarjetas — Cashback (1) -->
