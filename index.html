@@ -150,7 +150,7 @@ lang="es">
     @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.3; } }
 
     /* ── PRICING TIERS ── */
-    .tier-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 32px; }
+    .tier-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 32px; }
     @media(max-width:900px){ .tier-grid { grid-template-columns: repeat(2,1fr); } }
     @media(max-width:500px){ .tier-grid { grid-template-columns: 1fr; } }
 
@@ -569,6 +569,144 @@ lang="es">
       .tooltip-text { left: auto; right: 0; transform: none; }
       .tooltip-text::after { left: auto; right: 10px; }
     }
+
+    /* ══════════════════════════════════════════════
+       RESPONSIVE MOBILE — Comprehensive overrides
+    ══════════════════════════════════════════════ */
+
+    /* Prevent all horizontal overflow */
+    html, body { max-width: 100%; overflow-x: hidden; }
+    *, *::before, *::after { max-width: 100%; }
+    img, svg { max-width: 100%; height: auto; }
+
+    /* ── NAV ── */
+    @media(max-width:768px){
+      nav { padding: 10px 16px; }
+      .nav-logo > span[style*="width:1px"] { display: none !important; }
+      .nav-logo > a[href*="intertek"], .nav-logo > a[href*="Intertek"] { display: none !important; }
+    }
+    @media(max-width:380px){
+      .nav-wordmark { font-size: 14px; }
+      .nav-pill { display: none; }
+    }
+
+    /* ── HERO ── */
+    @media(max-width:480px){
+      .hero { padding: 90px 14px 56px; }
+      .hero-stats { gap: 8px; }
+      .hstat { padding: 12px 14px; }
+      .hstat-num { font-size: 24px; }
+    }
+    @media(max-width:380px){
+      .hero h1 { font-size: clamp(32px, 9vw, 46px); line-height: 1; }
+      .hero-sub { font-size: 14px; margin-bottom: 32px; }
+    }
+
+    /* ── HERO CARD — disable 3D tilt on touch ── */
+    @media(max-width:768px){
+      .hero-card { transform: none !important; }
+      .hero-card:hover { transform: none !important; }
+    }
+
+    /* ── SECTIONS ── */
+    @media(max-width:768px){
+      .section { padding: 64px 16px; }
+      .section-inner { padding: 0; }
+      .section-sub { margin-bottom: 36px; }
+    }
+    @media(max-width:480px){
+      .section { padding: 48px 14px; }
+      .section-h { letter-spacing: -0.01em; }
+    }
+
+    /* ── CALCULATOR ── */
+    @media(max-width:768px){
+      .calc-header { padding: 20px 18px; flex-direction: column; align-items: flex-start; }
+      .tdc-wrap { align-self: stretch; justify-content: space-between; }
+      .calc-left, .calc-right { padding: 24px 18px; }
+    }
+    @media(max-width:480px){
+      .calc-header { padding: 16px 14px; }
+      .tdc-input { width: 90px; font-size: 17px; }
+      .calc-left, .calc-right { padding: 20px 14px; }
+      /* FF options 4-col → 2-col */
+      .tier-options,
+      div[style*="grid-template-columns:repeat(4"] { grid-template-columns: repeat(2,1fr) !important; }
+    }
+    @media(max-width:360px){
+      .tier-options,
+      div[style*="grid-template-columns:repeat(4"] { grid-template-columns: 1fr 1fr !important; }
+    }
+
+    /* ── RESULT ROWS ── */
+    @media(max-width:480px){
+      .result-row-top { flex-direction: column; gap: 6px; }
+      .result-amounts { text-align: left; }
+      .result-mxn { font-size: 16px; }
+      .neto-main { font-size: clamp(26px, 7vw, 40px); }
+      .result-total, .result-neto { padding: 14px 16px; }
+    }
+
+    /* ── BREAKDOWN TABLE ── */
+    @media(max-width:600px){
+      .bt-row { gap: 4px; font-size: 12px; padding: 10px 12px; }
+      .bt-row > * { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 100%; }
+    }
+    @media(max-width:400px){
+      .bt-row { grid-template-columns: 1fr !important; gap: 2px; }
+      .bt-val { text-align: left; font-size: 11px; }
+    }
+
+    /* ── TIER CARDS ── */
+    @media(max-width:600px){
+      .tier-grid { grid-template-columns: 1fr 1fr !important; }
+    }
+    @media(max-width:380px){
+      .tier-grid { grid-template-columns: 1fr !important; }
+      .tier-card { padding: 20px 16px; }
+    }
+
+    /* ── FF PACKAGES ── */
+    @media(max-width:480px){
+      .ff-grid { grid-template-columns: 1fr !important; }
+      .ff-card { padding: 18px 16px; }
+    }
+
+    /* ── INLINE FLEX & GRID — force wrap/column ── */
+    @media(max-width:640px){
+      div[style*="grid-template-columns:1fr 1fr"],
+      div[style*="grid-template-columns: 1fr 1fr"],
+      div[style*="grid-template-columns:repeat(auto-fit"] { grid-template-columns: 1fr !important; }
+      .section-inner > div[style*="display:flex"],
+      .section-inner div[style*="display:flex;gap"] { flex-wrap: wrap !important; }
+    }
+
+    /* ── CTA / EXEC ── */
+    @media(max-width:480px){
+      .cta-section { padding: 56px 14px; }
+      #exec-grid { flex-direction: column; align-items: center; }
+      .exec-card { max-width: 100% !important; width: 100% !important; }
+    }
+
+    /* ── SCROLLABLE CONTAINERS ── */
+    @media(max-width:360px){
+      .breakdown-table { overflow-x: auto; }
+    }
+
+    /* ── TOUCH TARGETS ── */
+    @media(max-width:768px){
+      .tier-opt { min-height: 60px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+      .ff-card { cursor: pointer; -webkit-tap-highlight-color: transparent; }
+      .tier-card { -webkit-tap-highlight-color: transparent; }
+      .cta-btn { min-height: 52px; }
+    }
+
+    /* ── INPUT GROUPS ── */
+    @media(max-width:480px){
+      .input-row { flex-wrap: wrap; }
+      .calc-input { font-size: 16px; padding: 11px 12px; }
+      .input-group { margin-bottom: 16px; }
+    }
   </style>
 </head>
 <body>
@@ -759,7 +897,7 @@ lang="es">
               <span class="tooltip-text">Únicamente en Jeeves Pay / Transferencias, Pago a Proveedores</span>
             </span>
           </div>
-          <div style="font-size:13px;color:var(--text-secondary);line-height:1.6;">Solo <span style="color:var(--gold);font-weight:700;">1–3.5%</span> al activar la línea — se cobra una sola vez, a diferencia de los bancos tradicionales.</div>
+          <div style="font-size:13px;color:var(--text-secondary);line-height:1.6;">Solo <span style="color:var(--gold);font-weight:700;">3.5%</span> al activar la línea — se cobra una sola vez, a diferencia de los bancos tradicionales.</div>
         </div>
       </div>
 
@@ -1112,10 +1250,10 @@ lang="es">
       <div class="tier-card t1" id="tc1">
         <div class="active-tier-indicator"></div>
         <div class="tier-badge">Tier 1</div>
-        <div class="tier-users">Hasta 300 usuarios</div>
-        <div class="tier-price-mxn" id="t1_mxn">$163.40</div>
+        <div class="tier-users">Hasta 50 usuarios</div>
+        <div class="tier-price-mxn" id="t1_mxn">$294.10</div>
         <div class="tier-price-unit">MXN / usuario / mes</div>
-        <div class="tier-price-usd" id="t1_usd">≈ USD 9.50 / usuario</div>
+        <div class="tier-price-usd" id="t1_usd">≈ USD 17.00 / usuario</div>
         <div class="tier-ff" style="margin-top:14px;padding-top:14px;border-top:1px solid var(--black-4);">🧾 <strong style="color:var(--text-primary);">200 FotoFacturas incluidas</strong></div>
         <div style="margin-top:10px;font-size:11px;color:var(--text-muted);">+ <strong style="color:var(--pacific);">USD 200/mes</strong> platform fee</div>
       </div>
@@ -1123,21 +1261,32 @@ lang="es">
       <div class="tier-card t2" id="tc2">
         <div class="active-tier-indicator"></div>
         <div class="tier-badge">Tier 2</div>
-        <div class="tier-users">Hasta 400 usuarios</div>
-        <div class="tier-price-mxn" id="t2_mxn">$154.80</div>
+        <div class="tier-users">Hasta 100 usuarios</div>
+        <div class="tier-price-mxn" id="t2_mxn">$207.60</div>
         <div class="tier-price-unit">MXN / usuario / mes</div>
-        <div class="tier-price-usd" id="t2_usd">≈ USD 9.00 / usuario</div>
+        <div class="tier-price-usd" id="t2_usd">≈ USD 12.00 / usuario</div>
         <div class="tier-ff" style="margin-top:14px;padding-top:14px;border-top:1px solid var(--black-4);">🧾 <strong style="color:var(--text-primary);">200 FotoFacturas incluidas</strong></div>
         <div style="margin-top:10px;font-size:11px;color:var(--text-muted);">+ <strong style="color:var(--pacific);">USD 200/mes</strong> platform fee</div>
       </div>
 
       <div class="tier-card t3" id="tc3">
         <div class="active-tier-indicator"></div>
-        <div class="tier-badge">Tier 3 · Best Value</div>
-        <div class="tier-users">450+ usuarios</div>
-        <div class="tier-price-mxn" id="t3_mxn">$137.60</div>
+        <div class="tier-badge">Tier 3</div>
+        <div class="tier-users">Hasta 150 usuarios</div>
+        <div class="tier-price-mxn" id="t3_mxn">$164.35</div>
         <div class="tier-price-unit">MXN / usuario / mes</div>
-        <div class="tier-price-usd" id="t3_usd">≈ USD 8.00 / usuario</div>
+        <div class="tier-price-usd" id="t3_usd">≈ USD 9.50 / usuario</div>
+        <div class="tier-ff" style="margin-top:14px;padding-top:14px;border-top:1px solid var(--black-4);">🧾 <strong style="color:var(--text-primary);">200 FotoFacturas incluidas</strong></div>
+        <div style="margin-top:10px;font-size:11px;color:var(--text-muted);">+ <strong style="color:var(--pacific);">USD 200/mes</strong> platform fee</div>
+      </div>
+
+      <div class="tier-card t4" id="tc4">
+        <div class="active-tier-indicator"></div>
+        <div class="tier-badge">Tier 4 · Best Value</div>
+        <div class="tier-users">200+ usuarios</div>
+        <div class="tier-price-mxn" id="t4_mxn">$138.40</div>
+        <div class="tier-price-unit">MXN / usuario / mes</div>
+        <div class="tier-price-usd" id="t4_usd">≈ USD 8.00 / usuario</div>
         <div class="tier-ff" style="margin-top:14px;padding-top:14px;border-top:1px solid var(--black-4);">🧾 <strong style="color:var(--text-primary);">200 FotoFacturas incluidas</strong></div>
         <div style="margin-top:10px;font-size:11px;color:var(--text-muted);">+ <strong style="color:var(--pacific);">USD 200/mes</strong> platform fee</div>
       </div>
@@ -1226,12 +1375,19 @@ lang="es">
               <input id="usuarios" class="calc-input" type="number" value="500" min="1" max="2000" oninput="syncSlider(); recalc()">
               <span class="input-suffix">usuarios</span>
             </div>
-            <input id="slider_usuarios" class="user-slider" type="range" min="100" max="1000" value="500" oninput="syncInput(); recalc()">
+            <input id="slider_usuarios" class="user-slider" type="range" min="150" max="700" value="500" oninput="syncInput(); recalc()">
             <div class="input-hint" id="hint_tier">→ Tier detectado automáticamente</div>
           </div>
 
-          <!-- Descuento oculto (compatibilidad) -->
-          <input id="descuento" type="hidden" value="0">
+          <!-- Descuento -->
+          <div class="input-group" id="descuento-group" style="display:none;">
+            <label class="input-label">Descuento negociado (%)</label>
+            <div class="input-row">
+              <input id="descuento" class="calc-input" type="number" value="0" min="0" max="50" step="1" oninput="recalc()">
+              <span class="input-suffix">%</span>
+            </div>
+            <div class="input-hint">Descuento aplicado sobre precio de tier</div>
+          </div>
 
           <!-- FotoFacturas toggle -->
           <div class="input-group">
@@ -1263,7 +1419,7 @@ lang="es">
               <span style="font-size:11px;color:var(--text-muted);white-space:nowrap;">FF / mes</span>
               <span id="ff_custom_price" style="font-size:11px;font-weight:700;color:var(--gold);white-space:nowrap;margin-left:auto;"></span>
             </div>
-            <div class="input-hint">MXN / mes · $10 por factura adicional · o elige un paquete arriba</div>
+            <div class="input-hint">MXN / mes · $8.70 por factura adicional · o elige un paquete arriba</div>
           </div>
 
           <!-- Esquema de Pagos -->
@@ -1426,6 +1582,7 @@ lang="es">
             </div>
           </div>
 
+          <!-- Total investmnet -->
           <!-- Subtotal row — visible only when discount is active -->
           <div class="result-row" id="res_subtotal_row" style="display:none;">
             <div class="result-row-top">
@@ -1439,7 +1596,7 @@ lang="es">
             </div>
           </div>
 
-          <!-- Discount deduction row — visible only when scheme selected -->
+          <!-- Discount deduction row -->
           <div class="result-row" id="res_pago_row" style="display:none;background:rgba(74,188,160,0.04);border-color:rgba(74,188,160,0.18);">
             <div class="result-row-top">
               <div>
@@ -1453,7 +1610,6 @@ lang="es">
             </div>
           </div>
 
-          <!-- Total final — always shown, reflects discount when active -->
           <div class="result-total">
             <div class="result-row-top">
               <div style="font-size:13px;font-weight:700;" id="res_total_label">💳 Total Inversión Plataforma</div>
@@ -1548,7 +1704,7 @@ lang="es">
           </div>
 
           <div style="margin-top:12px;font-size:10px;color:var(--text-muted);line-height:1.6;">
-            * Tipo de cambio configurable. El descuento por esquema de pago se aplica sobre el total de plataforma + add-ons. El cashback aplica 6 meses del año. Los ahorros son estimaciones.
+            * Tipo de cambio configurable. El cashback aplica 6 meses del año. Los ahorros en cajeros son estimaciones basadas en comisiones actuales del mercado.
           </div>
           <div style="margin-top:8px;font-size:10px;color:var(--gold);font-weight:600;letter-spacing:0.04em;">💡 Precio más IVA · Tipo de cambio de referencia</div>
         </div>
@@ -1681,11 +1837,12 @@ lang="es">
 //  PRICING DATA
 // ──────────────────────────────────
 var TIERS = [
-  { max: 300,      usd: 9.50 },
-  { max: 400,      usd: 9.00 },
-  { max: Infinity, usd: 8.00 }
+  { max: 50,   mxn: 294.10, usd: 17.00 },
+  { max: 100,  mxn: 207.60, usd: 12.00 },
+  { max: 150,  mxn: 164.35, usd: 9.50  },
+  { max: Infinity, mxn: 138.40, usd: 8.00 }
 ];
-var TIER_LABELS = ['Tier 1 · hasta 300 usuarios', 'Tier 2 · hasta 400 usuarios', 'Tier 3 · 450+ usuarios'];
+var TIER_LABELS = ['Tier 1 · hasta 50 usuarios', 'Tier 2 · hasta 100 usuarios', 'Tier 3 · hasta 150 usuarios', 'Tier 4 · 200+ usuarios'];
 var PLATFORM_FEE_USD = 200;   // USD fijo mensual por plataforma
 var FF_PACKAGES = {
   0:    { facturas: 0,    desc: 'Sin FotoFacturas adicionales' },
@@ -1693,11 +1850,47 @@ var FF_PACKAGES = {
   1000: { facturas: 1000, desc: 'Paquete 1,000 facturas extra' },
   1500: { facturas: 1500, desc: 'Paquete 1,500 facturas extra' }
 };
-var FF_PRICE_MXN = 10; // $10 MXN por factura adicional
+var FF_PRICE_MXN = 8.7; // $8.70 MXN por factura adicional
 var FF_BASE_FACTURAS = 200; // 200 fotofacturas incluidas en precio base (ocultas)
 
 var selectedFF = 0;
 var customFF   = 0; // FotoFacturas ingresadas manualmente por el cliente
+
+// ──────────────────────────────────
+//  PAYMENT SCHEME SELECTION
+// ──────────────────────────────────
+var selectedPaymentDiscount = 0;
+
+function resetPayment() {
+  selectedPaymentDiscount = 0;
+  ['pago_anual','pago_q','pago_3p'].forEach(function(id) {
+    var el = document.getElementById(id); if (el) el.classList.remove('selected');
+  });
+  var hint = document.getElementById('pago_calc_hint');
+  if (hint) { hint.textContent = 'Selecciona un esquema para aplicar el descuento al total'; hint.style.color = ''; }
+}
+
+var PAYMENT_SCHEMES = {
+  anual: { disc:15, label:'Pago Anual · 15% OFF',      color:'var(--gold)'    },
+  q:     { disc:10, label:'Pago Trimestral · 10% OFF', color:'var(--pacific)' },
+  '3p':  { disc:5,  label:'3 Parcialidades · 5% OFF',  color:'var(--green)'   }
+};
+
+function selectPayment(key) {
+  var scheme = PAYMENT_SCHEMES[key];
+  if (!scheme) return;
+  if (selectedPaymentDiscount === scheme.disc) { resetPayment(); recalc(); return; }
+  selectedPaymentDiscount = scheme.disc;
+  ['pago_anual','pago_q','pago_3p'].forEach(function(id) {
+    var el = document.getElementById(id); if (el) el.classList.remove('selected');
+  });
+  var map = { anual:'pago_anual', q:'pago_q', '3p':'pago_3p' };
+  var btn = document.getElementById(map[key]);
+  if (btn) btn.classList.add('selected');
+  var hint = document.getElementById('pago_calc_hint');
+  if (hint) { hint.textContent = '✓ ' + scheme.label + ' aplicado al total'; hint.style.color = scheme.color; }
+  recalc();
+}
 
 // ──────────────────────────────────
 //  FORMATTERS
@@ -1718,14 +1911,14 @@ function fmxnD(n) {  // with decimals
 function syncSlider() {
   var u = parseInt(document.getElementById('usuarios').value) || 1;
   var s = document.getElementById('slider_usuarios');
-  s.value = Math.min(Math.max(u, 100), 1000);
-  var pct = ((Math.min(Math.max(u,100),1000) - 100) / 900 * 100);
+  s.value = Math.min(Math.max(u, 150), 700);
+  var pct = ((Math.min(Math.max(u,150),700) - 150) / 550 * 100);
   s.style.setProperty('--pct', pct + '%');
 }
 function syncInput() {
   var v = parseInt(document.getElementById('slider_usuarios').value) || 1;
   document.getElementById('usuarios').value = v;
-  var pct = ((v - 100) / 900 * 100);
+  var pct = ((v - 150) / 550 * 100);
   document.getElementById('slider_usuarios').style.setProperty('--pct', pct + '%');
 }
 
@@ -1740,10 +1933,9 @@ function getTier(n) {
 }
 
 function highlightTier(idx) {
-  var ids = ['tc1','tc2','tc3'];
+  var ids = ['tc1','tc2','tc3','tc4'];
   ids.forEach(function(id, i) {
     var el = document.getElementById(id);
-    if (!el) return;
     if (i === idx) {
       el.classList.add('active-tier');
     } else {
@@ -1767,43 +1959,6 @@ function setFF(paq) {
   recalc();
 }
 function selectFF(paq) { setFF(paq); }
-
-// ──────────────────────────────────
-//  PAYMENT SCHEME SELECTION
-// ──────────────────────────────────
-var selectedPaymentDiscount = 0;
-
-function resetPayment() {
-  selectedPaymentDiscount = 0;
-  ['pago_anual','pago_q','pago_3p'].forEach(function(id) {
-    var el = document.getElementById(id); if (el) el.classList.remove('selected');
-  });
-  var hint = document.getElementById('pago_calc_hint');
-  if (hint) { hint.textContent = 'Selecciona un esquema para aplicar el descuento al total'; hint.style.color = ''; }
-}
-
-var PAYMENT_SCHEMES = {
-  anual: { disc:15, label:'Pago Anual · 15% OFF',         color:'var(--gold)'    },
-  q:     { disc:10, label:'Pago Trimestral · 10% OFF',    color:'var(--pacific)' },
-  '3p':  { disc:5,  label:'3 Parcialidades · 5% OFF',     color:'var(--green)'   }
-};
-
-function selectPayment(key) {
-  var scheme = PAYMENT_SCHEMES[key];
-  if (!scheme) return;
-  // Toggle off if already selected
-  if (selectedPaymentDiscount === scheme.disc) { resetPayment(); recalc(); return; }
-  selectedPaymentDiscount = scheme.disc;
-  ['pago_anual','pago_q','pago_3p'].forEach(function(id) {
-    var el = document.getElementById(id); if (el) el.classList.remove('selected');
-  });
-  var map = { anual:'pago_anual', q:'pago_q', '3p':'pago_3p' };
-  var btn = document.getElementById(map[key]);
-  if (btn) btn.classList.add('selected');
-  var hint = document.getElementById('pago_calc_hint');
-  if (hint) { hint.textContent = '✓ ' + scheme.label + ' aplicado al total'; hint.style.color = scheme.color; }
-  recalc();
-}
 
 function clearCustomFF() {
   var inp = document.getElementById('ff_custom');
@@ -1853,11 +2008,11 @@ function recalc() {
   highlightTier(tIdx);
 
   // Update tier cards with current TDC
+  var tierColors = ['var(--pacific)','var(--green)','var(--amber)','var(--gold)'];
   TIERS.forEach(function(t, i) {
-    var mxnEl = document.getElementById('t'+(i+1)+'_mxn');
-    var usdEl = document.getElementById('t'+(i+1)+'_usd');
-    if (mxnEl) mxnEl.textContent = fmxnD(t.usd * tdc);
-    if (usdEl) usdEl.textContent = '≈ USD ' + t.usd.toFixed(2) + ' / usuario';
+    var mxnLabel = fmxnD(t.mxn);
+    document.getElementById('t'+(i+1)+'_mxn').textContent = mxnLabel;
+    document.getElementById('t'+(i+1)+'_usd').textContent = '≈ USD ' + t.usd.toFixed(2) + ' / usuario';
   });
 
   // Price per user after discount (USD)
@@ -1894,14 +2049,14 @@ function recalc() {
   var ffAno    = ffAddonAno;
   var ffAnoUSD = ffAddonAnoUSD;
 
-  // Total investment (base, before payment scheme discount)
+  // Total investment
   var totalMes        = platMes + ffMes;
   var totalAnoBase    = platAno + ffAno;
   var totalAnoUSDBase = platAnoUSD + ffAnoUSD;
 
-  // Payment scheme discount
-  var pagoDisc    = selectedPaymentDiscount || 0;
-  var pagoMult    = 1 - pagoDisc / 100;
+  // Apply payment scheme discount
+  var pagoDisc = selectedPaymentDiscount || 0;
+  var pagoMult = 1 - pagoDisc / 100;
   var totalAno    = totalAnoBase    * pagoMult;
   var totalAnoUSD = totalAnoUSDBase * pagoMult;
 
@@ -1943,8 +2098,9 @@ function recalc() {
   var roi = totalAno > 0 ? (totalSavings / totalAno) * 100 : 0;
 
   // ── Update tier hint
-  var tNames = ['Tier 1','Tier 2','Tier 3'];
+  var tNames = ['Tier 1','Tier 2','Tier 3','Tier 4'];
   var hintTxt = '→ ' + tNames[tIdx] + ' · USD ' + tier.usd.toFixed(2) + '/usuario' +
+    (desc > 0 ? ' − ' + desc + '% dto. = USD ' + priceUnitUSD.toFixed(2) + ' neto' : '') +
     ' + Platform Fee USD ' + PLATFORM_FEE_USD + '/mes';
   document.getElementById('hint_tier').textContent = hintTxt;
 
@@ -1953,7 +2109,7 @@ function recalc() {
     gastoMes > 0 ? 'Anual: ' + fmxn(gastoMes * 12) + ' MXN' : '';
 
   // ── Update results
-  document.getElementById('res_tier_label').textContent = TIER_LABELS[tIdx] + ' + Platform Fee';
+  document.getElementById('res_tier_label').textContent = TIER_LABELS[tIdx] + (desc>0?' · −'+desc+'% dto.':'') + ' + Platform Fee';
   setText('res_plat_mxn', fmxn(platAno) + ' MXN/año');
   setText('res_plat_usd', '≈ ' + fusd(platAnoUSD) + ' / año');
   var breakdownEl = document.getElementById('res_plat_breakdown');
@@ -1976,28 +2132,25 @@ function recalc() {
     hide('res_ff_row');
   }
 
-  // Subtotal + Discount + Total rows
+  setText('res_total_mxn', fmxn(totalAno) + ' MXN/año');
+  setText('res_total_usd', '≈ ' + fusd(totalAnoUSD) + ' / año');
+
+  // Payment scheme discount rows
   if (pagoDisc > 0) {
-    // Show subtotal (base before discount)
     show('res_subtotal_row');
     setText('res_subtotal_mxn', fmxn(totalAnoBase) + ' MXN/año');
     setText('res_subtotal_usd', '≈ ' + fusd(totalAnoUSDBase) + ' / año');
-    // Show discount row
     show('res_pago_row');
     var pagoLabel = pagoDisc === 15 ? 'Pago Anual' : pagoDisc === 10 ? 'Trimestral' : '3 Parcialidades';
     setText('res_pago_label_val', pagoDisc + '% de descuento · ' + pagoLabel);
     setText('res_pago_mxn', '− ' + fmxn(totalAnoBase - totalAno) + ' MXN/año');
     setText('res_pago_usd', '− ' + fusd(totalAnoUSDBase - totalAnoUSD) + ' / año');
-    // Update total label to make it clear
     setText('res_total_label', '💳 Total con Descuento (' + pagoDisc + '% OFF)');
   } else {
     hide('res_subtotal_row');
     hide('res_pago_row');
     setText('res_total_label', '💳 Total Inversión Plataforma');
   }
-
-  setText('res_total_mxn', fmxn(totalAno) + ' MXN/año');
-  setText('res_total_usd', '≈ ' + fusd(totalAnoUSD) + ' / año');
 
   // Cashback
   setText('res_cb_mxn', fmxn(cbMXN) + ' MXN');
