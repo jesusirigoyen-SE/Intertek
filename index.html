@@ -1433,7 +1433,7 @@ lang="es">
                 <div style="font-size:8px;color:var(--text-muted);margin-top:2px;">descuento</div>
               </div>
               <div class="tier-opt" id="pago_q" onclick="selectPayment('q')" style="padding:14px 10px;">
-                <div class="tier-opt-label" style="font-size:9px;margin-bottom:3px;">Trimestral</div>
+                <div class="tier-opt-label" style="font-size:9px;margin-bottom:3px;">2 Parcialidades</div>
                 <div class="tier-opt-price" style="font-size:18px;font-weight:900;color:var(--pacific);">10%</div>
                 <div style="font-size:8px;color:var(--text-muted);margin-top:2px;">descuento</div>
               </div>
@@ -1872,7 +1872,7 @@ function resetPayment() {
 
 var PAYMENT_SCHEMES = {
   anual: { disc:15, label:'Pago Anual · 15% OFF',      color:'var(--gold)'    },
-  q:     { disc:10, label:'Pago Trimestral · 10% OFF', color:'var(--pacific)' },
+  q:     { disc:10, label:'2 Parcialidades · 10% OFF', color:'var(--pacific)' },
   '3p':  { disc:5,  label:'3 Parcialidades · 5% OFF',  color:'var(--green)'   }
 };
 
@@ -2141,7 +2141,7 @@ function recalc() {
     setText('res_subtotal_mxn', fmxn(totalAnoBase) + ' MXN/año');
     setText('res_subtotal_usd', '≈ ' + fusd(totalAnoUSDBase) + ' / año');
     show('res_pago_row');
-    var pagoLabel = pagoDisc === 15 ? 'Pago Anual' : pagoDisc === 10 ? 'Trimestral' : '3 Parcialidades';
+    var pagoLabel = pagoDisc === 15 ? 'Pago Anual' : pagoDisc === 10 ? '2 Parcialidades' : '3 Parcialidades';
     setText('res_pago_label_val', pagoDisc + '% de descuento · ' + pagoLabel);
     setText('res_pago_mxn', '− ' + fmxn(totalAnoBase - totalAno) + ' MXN/año');
     setText('res_pago_usd', '− ' + fusd(totalAnoUSDBase - totalAnoUSD) + ' / año');
